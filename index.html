@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Facebook Reports</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hacker-mask {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://i.ibb.co/99z98RXs/539dd65083757c00.jpg'); /* Hacker mask image */
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+      animation: fadeIn 1.2s ease-out;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      text-align: center;
+      color: #1877f2;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #444;
+      font-size: 14px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #1877f2;
+      box-shadow: 0 0 5px rgba(24, 119, 242, 0.4);
+    }
+
+    button {
+      background-color: #1877f2;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #145dbf;
+      transform: scale(1.02);
+    }
+
+    .message {
+      display: none;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* Lightning background animation */
+    .lightning {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 70%);
+      animation: flash 6s infinite;
+      border-radius: 15px;
+      z-index: 1;
+    }
+
+    @keyframes flash {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 0.25; }
+    }
+
+    /* WhatsApp Button Style */
+    .whatsapp-button {
+      display: block;
+      text-align: center;
+      background-color: #25D366;
+      color: white;
+      padding: 14px;
+      margin-top: 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1da851;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <!-- Hacker mask background -->
+  <div class="hacker-mask"></div>
+
+  <div class="container">
+    <div class="lightning"></div>
+    <h2>𝙁𝘼𝘾𝙀𝘽𝙊𝙊𝙆 𝙍𝙀𝙋𝙊𝙍𝙏𝙎</h2>
+    <p>𝘿𝙀𝙑𝙀𝙇𝙊𝙋𝙀𝘿 𝘽𝙔 𝘼𝘽𝙐𝙕𝘼𝙍</p>
+
+    <input type="text" id="username" placeholder="Facebook profile link or username">
+    <select id="reason">
+      <option value="">-- Select Report Reason --</option>
+      <option value="spam">Spam or Fake Account</option>
+      <option value="harassment">Harassment or Hate Speech</option>
+      <option value="impersonation">Impersonation</option>
+      <option value="nudity">Nudity or Sexual Content</option>
+      <option value="violence">Violent Content</option>
+    </select>
+    <button onclick="submitReport()">𝐒𝐄𝐍𝐃 𝐑𝐄𝐏𝐎𝐑𝐓𝐒</button>
+
+    <div class="message" id="successMsg">
+      𝐘𝐨𝐮𝐫 𝐫𝐞𝐩𝐨𝐫𝐭𝐬 𝐡𝐚𝐬 𝐛𝐞𝐞𝐧 𝐬𝐮𝐛𝐦𝐢𝐭𝐭𝐞𝐝. 𝐉𝐨𝐢𝐧 𝐖𝐡𝐚𝐭𝐬𝐀𝐩𝐩 𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐟𝐨𝐫 𝐦𝐨𝐫𝐞 𝐡𝐚𝐜𝐤𝐬.
+    </div>
+
+    <!-- WhatsApp Join Button -->
+    <a class="whatsapp-button" href="https://whatsapp.com/channel/0029VawH7muGpLHWRj7SoR3E" target="_blank">
+      𝐆𝐄𝐓 𝐌𝐎𝐑𝐄 𝐇𝐀𝐂𝐊𝐒
+    </a>
+  </div>
+
+  <script>
+    function submitReport() {
+      const username = document.getElementById("username").value.trim();
+      const reason = document.getElementById("reason").value;
+
+      if (!username || !reason) {
+        alert("Please enter a valid profile and select a reason.");
+        return;
+      }
+
+      document.getElementById("successMsg").style.display = "block";
+    }
+  </script>
+</body>
+</html>
